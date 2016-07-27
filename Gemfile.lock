@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     markdown_handler (0.1.0)
-      pygments.rb
+      pygments.rb (~> 0.6.3)
       rails (~> 5.0.0)
-      redcarpet
+      redcarpet (~> 3.3.4)
 
 GEM
   remote: https://rubygems.org/

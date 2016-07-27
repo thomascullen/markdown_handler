@@ -10,13 +10,14 @@ Gem::Specification.new do |s|
   s.authors     = ["Thomas Cullen"]
   s.email       = ["thomascullen92@gmail.com"]
   s.summary     = "Rails markdown template handler"
+  s.homepage      = "https://github.com/thomascullen/rails_markdown_handler"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.0.0"
-  s.add_dependency "redcarpet"
-  s.add_dependency "pygments.rb"
+  s.add_dependency "rails", "~> 5.0"
+  s.add_dependency "redcarpet", "~> 3.3"
+  s.add_dependency "pygments.rb", "~> 0.6"
 
   s.add_development_dependency "sqlite3"
 end
