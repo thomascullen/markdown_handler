@@ -1,28 +1,50 @@
-# MarkdownHandler
-Short description and motivation.
+# Rails Markdown Handler
 
-## Usage
-How to use my plugin.
+### Adds markdown template handling to rails using the [Redcarpet](https://github.com/vmg/redcarpet) gem.
+
+RailsMarkdownHandler will also parses ERB and embeded HTML.
 
 ## Installation
-Add this line to your application's Gemfile:
 
+```
+gem "markdown_handler"
+```
+
+```
+$ bundle install
+```
+
+## Usage
+
+app/config/routes.rb
 ```ruby
-gem 'markdown_handler'
+get "/example", to: "pages#example"
 ```
 
-And then execute:
-```bash
-$ bundle
+app/controllers/pages_controller.rb
+```ruby
+class PagesController < ApplicationController
+  def example
+  end
+end
 ```
 
-Or install it yourself as:
-```bash
-$ gem install markdown_handler
+app/views/pages/example.md
+```md
+# Posts
+
+<% @posts.each do |post| %>
+  ## <%= post.title %>
+  <%= post.body %>
+<% end %>
 ```
 
-## Contributing
-Contribution directions go here.
+## Configuration
 
-## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+You can configure the redcarpet renderer using an initializer.
+```ruby
+# app/config/initializers/markdown.rb
+MarkdownHandler.configure do |config|
+  config[:autolink] = false
+end
+```
